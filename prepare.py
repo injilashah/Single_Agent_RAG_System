@@ -14,6 +14,7 @@ def prepare_document(file):
     
     embeddings=HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
     vector_storage=FAISS.from_documents(chunk_documents,embeddings)
-    retriever = vector_storage.as_retriever()
+    retriever = vector_storage.as_retriever(search_type = "similarity",search_kwargs ={"k":3})
+    
     tool = retrieval_tool(retriever)
-    return tool
+    return tool,retriever

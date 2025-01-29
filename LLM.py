@@ -10,8 +10,8 @@ def groq_llm():
         raise ValueError("GROQ_API_KEY is not set in the environment. Please set it before running the script.")
     
     llm = ChatGroq(
-    model="llama-3.1-8b-instant",
-    temperature=0.1,
+    model="llama-3.3-70b-versatile",
+    temperature=0,
     max_tokens=None,
     timeout=None,
     max_retries=2,
